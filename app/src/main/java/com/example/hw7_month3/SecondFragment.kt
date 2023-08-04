@@ -11,6 +11,7 @@ import com.example.hw7_month3.databinding.FragmentSecondBinding
 class SecondFragment : Fragment() {
 
     private lateinit var binding: FragmentSecondBinding
+    private lateinit var navArgs: SecondFragmentArgs
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,10 +24,15 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val result = arguments?.getSerializable("naruto") as Heroes
+//        val result = arguments?.getSerializable("naruto") as Heroes
 
-        binding.tvName.text = result.name
-        binding.tvState.text = result.state
-        Glide.with(binding.imgPhotoHero).load(result.image).into(binding.imgPhotoHero)
+
+        arguments?.let {
+            navArgs = SecondFragmentArgs.fromBundle(it)
+        }
+        binding.tvName.text = navArgs.naruto.name
+        binding.tvState.text = navArgs.naruto.state
+        Glide.with(binding.imgPhotoHero).load(navArgs.naruto.image).into(binding.imgPhotoHero)
+
     }
 }

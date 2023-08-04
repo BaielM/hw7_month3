@@ -9,10 +9,18 @@
         android:id="@+id/mainFragment"
         android:name="com.example.hw7_month3.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.hw7_month3.SecondFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_second" >
+        <argument
+            android:name="naruto"
+            app:argType="com.example.hw7_month3.Heroes"/>
+    </fragment>
 </navigation>
